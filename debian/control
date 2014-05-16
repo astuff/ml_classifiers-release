@@ -1,0 +1,12 @@
+Source: ros-hydro-ml-classifiers
+Section: misc
+Priority: extra
+Maintainer: Scott Niekum <sniekum@cs.umass.edu>
+Build-Depends: debhelper (>= 7.0.50~), ros-hydro-catkin, ros-hydro-message-generation, ros-hydro-pluginlib, ros-hydro-roscpp, ros-hydro-rospy, ros-hydro-std-msgs
+Homepage: http://ros.org/wiki/ml_classifiers
+Standards-Version: 3.9.2
+
+Package: ros-hydro-ml-classifiers
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-hydro-message-runtime, ros-hydro-pluginlib, ros-hydro-roscpp, ros-hydro-rospy, ros-hydro-std-msgs
+Description: ml_classifiers
