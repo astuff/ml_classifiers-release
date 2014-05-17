@@ -17,14 +17,12 @@
   <build_depend>rospy</build_depend>
   <build_depend>roscpp</build_depend>
   <build_depend>pluginlib</build_depend>
-  <build_depend>eigen</build_depend>
   <build_depend>message_generation</build_depend>
 
   <run_depend>std_msgs</run_depend>
   <run_depend>rospy</run_depend>
   <run_depend>roscpp</run_depend>
   <run_depend>pluginlib</run_depend>
-  <run_depend>eigen</run_depend>
   <run_depend>message_runtime</run_depend>
 
   <export>
