@@ -34,69 +34,73 @@
  *
  *********************************************************************/
 
-/**
-  * \author Scott Niekum
-  */
-
-
 #include "ml_classifiers/nearest_neighbor_classifier.h"
 #include <pluginlib/class_list_macros.h>
 
-PLUGINLIB_DECLARE_CLASS(ml_classifiers, NearestNeighborClassifier, ml_classifiers::NearestNeighborClassifier, ml_classifiers::Classifier)
+#include <string>
+#include <vector>
 
-using namespace std;
+PLUGINLIB_EXPORT_CLASS(ml_classifiers::NearestNeighborClassifier, ml_classifiers::Classifier)
 
-namespace ml_classifiers{
+namespace ml_classifiers
+{
 
-    NearestNeighborClassifier::NearestNeighborClassifier(){}
-    
-    NearestNeighborClassifier::~NearestNeighborClassifier(){}
-    
-    void NearestNeighborClassifier::save(const std::string filename){}
-    
-    bool NearestNeighborClassifier::load(const std::string filename){return false;}
-    
-    void NearestNeighborClassifier::addTrainingPoint(string target_class, const std::vector<double> point)
-    {
-        class_data[target_class].push_back(point);
-    }
-    
-    void NearestNeighborClassifier::train(){}
-    
-    void NearestNeighborClassifier::clear()
-    {
-        class_data.clear();
-    }
-    
-    string NearestNeighborClassifier::classifyPoint(const std::vector<double> point)
-    {
-        size_t dims = point.size();
-        double min_diff=0;
-        string ans;
-        bool first = true;
-        
-        for(ClassMap::iterator iter = class_data.begin(); iter != class_data.end(); iter++){
-            string cname = iter->first;
-            CPointList cpl = iter->second;
-            
-            for(size_t i=0; i<cpl.size(); i++){
-                double diff = 0;
-                for(size_t j=0; j<dims; j++){
-                    diff += fabs(cpl[i][j] - point[j]);
-                }
-                if(first){
-                    first = false;
-                    min_diff = diff;
-                    ans = cname;
-                }
-                else if(diff < min_diff){
-                    min_diff = diff;
-                    ans = cname;
-                }
-            }
-        }
-        return ans;
-    }
+NearestNeighborClassifier::NearestNeighborClassifier() {}
 
+NearestNeighborClassifier::~NearestNeighborClassifier() {}
+
+void NearestNeighborClassifier::save(const std::string filename) {}
+
+bool NearestNeighborClassifier::load(const std::string filename)
+{
+  return false;
 }
 
+void NearestNeighborClassifier::addTrainingPoint(std::string target_class, const std::vector<double> point)
+{
+  class_data[target_class].push_back(point);
+}
+
+void NearestNeighborClassifier::train() {}
+
+void NearestNeighborClassifier::clear()
+{
+  class_data.clear();
+}
+
+std::string NearestNeighborClassifier::classifyPoint(const std::vector<double> point)
+{
+  size_t dims = point.size();
+  double min_diff = 0;
+  std::string ans;
+  bool first = true;
+
+  for (ClassMap::iterator iter = class_data.begin(); iter != class_data.end(); iter++)
+  {
+    std::string cname = iter->first;
+    CPointList cpl = iter->second;
+
+    for (size_t i = 0; i < cpl.size(); i++)
+    {
+      double diff = 0;
+      for (size_t j = 0; j < dims; j++)
+      {
+        diff += fabs(cpl[i][j] - point[j]);
+      }
+      if (first)
+      {
+        first = false;
+        min_diff = diff;
+        ans = cname;
+      }
+      else if (diff < min_diff)
+      {
+        min_diff = diff;
+        ans = cname;
+      }
+    }
+  }
+  return ans;
+}
+
+}  // namespace ml_classifiers

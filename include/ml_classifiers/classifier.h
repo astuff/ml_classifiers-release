@@ -34,30 +34,31 @@
  *
  *********************************************************************/
 
-/**
-  * \author Scott Niekum
-  */
-
-#ifndef CLASSIFIER_H_
-#define CLASSIFIER_H_
+#ifndef ML_CLASSIFIERS_CLASSIFIER_H
+#define ML_CLASSIFIERS_CLASSIFIER_H
 
 #include "ros/ros.h"
 
-namespace ml_classifiers{
+#include <string>
+#include <vector>
+
+namespace ml_classifiers
+{
 
 class Classifier
 {
 public:
-    Classifier(){};
-    virtual ~Classifier(){};
-    
-    virtual void save(const std::string filename) = 0;
-    virtual bool load(const std::string filename) = 0;
-    virtual void addTrainingPoint(std::string target_class, const std::vector<double> point) = 0;
-    virtual void train() = 0;
-    virtual void clear() = 0;
-    virtual std::string classifyPoint(const std::vector<double> point) = 0;
+  Classifier() {}
+  virtual ~Classifier() {}
+
+  virtual void save(const std::string filename) = 0;
+  virtual bool load(const std::string filename) = 0;
+  virtual void addTrainingPoint(std::string target_class, const std::vector<double> point) = 0;
+  virtual void train() = 0;
+  virtual void clear() = 0;
+  virtual std::string classifyPoint(const std::vector<double> point) = 0;
 };
 
-} /* End namespace */
-#endif /* CLASSIFIER_H_ */
+}  // namespace ml_classifiers
+
+#endif  // ML_CLASSIFIERS_CLASSIFIER_H

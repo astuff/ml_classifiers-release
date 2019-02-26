@@ -34,29 +34,31 @@
  *
  *********************************************************************/
 
-/**
-  * \author Scott Niekum
-  */
-
-
 #include "ml_classifiers/zero_classifier.h"
 #include <pluginlib/class_list_macros.h>
 
-PLUGINLIB_DECLARE_CLASS(ml_classifiers, ZeroClassifier, ml_classifiers::ZeroClassifier, ml_classifiers::Classifier)
+#include <string>
+#include <vector>
 
-using namespace std;
+PLUGINLIB_EXPORT_CLASS(ml_classifiers::ZeroClassifier, ml_classifiers::Classifier)
 
-namespace ml_classifiers{
+namespace ml_classifiers
+{
 
-    ZeroClassifier::ZeroClassifier(){}
-    ZeroClassifier::~ZeroClassifier(){}
-    
-    void ZeroClassifier::save(const std::string filename){}
-    bool ZeroClassifier::load(const std::string filename){return false;}
-    void ZeroClassifier::addTrainingPoint(string target_class, const std::vector<double> point){}
-    void ZeroClassifier::train(){}
-    void ZeroClassifier::clear(){}
-    string ZeroClassifier::classifyPoint(const std::vector<double> point){return "0";}
+ZeroClassifier::ZeroClassifier() {}
+ZeroClassifier::~ZeroClassifier() {}
 
+void ZeroClassifier::save(const std::string filename) {}
+bool ZeroClassifier::load(const std::string filename)
+{
+  return false;
+}
+void ZeroClassifier::addTrainingPoint(std::string target_class, const std::vector<double> point) {}
+void ZeroClassifier::train() {}
+void ZeroClassifier::clear() {}
+std::string ZeroClassifier::classifyPoint(const std::vector<double> point)
+{
+  return "0";
 }
 
+}  // namespace ml_classifiers

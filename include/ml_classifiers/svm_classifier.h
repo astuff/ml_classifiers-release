@@ -34,42 +34,44 @@
  *
  *********************************************************************/
 
-/**
-  * \author Scott Niekum
-  */
+#ifndef ML_CLASSIFIERS_SVM_CLASSIFIER_H
+#define ML_CLASSIFIERS_SVM_CLASSIFIER_H
 
-#ifndef SVM_CLASSIFIER_H_
-#define SVM_CLASSIFIER_H_
+#include "ml_classifiers/classifier.h"
+#include "libsvm-3.14/svm.h"
 
-#include "classifier.h"
-#include "../../src/libsvm-3.14/svm.h"
+#include <map>
+#include <string>
+#include <vector>
 
-namespace ml_classifiers{
-    
-typedef std::vector<double> CPoint;    
+namespace ml_classifiers
+{
+
+typedef std::vector<double> CPoint;
 typedef std::vector<CPoint> CPointList;
-typedef std::map<std::string,CPointList> ClassMap;
-    
+typedef std::map<std::string, CPointList> ClassMap;
+
 class SVMClassifier : public Classifier
 {
 public:
-    ClassMap class_data;
-    svm_problem svm_data;
-    svm_model *trained_model;
-    std::map<std::string,int> label_str_to_int;
-    std::map<int,std::string> label_int_to_str;
-    double **scaling_factors;
-    
-    SVMClassifier();
-    ~SVMClassifier();
-    
-    void save(const std::string filename);
-    bool load(const std::string filename);
-    void addTrainingPoint(std::string target_class, const std::vector<double> point);
-    void train();
-    void clear();
-    std::string classifyPoint(const std::vector<double> point);
+  ClassMap class_data;
+  svm_problem svm_data;
+  svm_model *trained_model;
+  std::map<std::string, int> label_str_to_int;
+  std::map<int, std::string> label_int_to_str;
+  double **scaling_factors;
+
+  SVMClassifier();
+  ~SVMClassifier();
+
+  void save(const std::string filename);
+  bool load(const std::string filename);
+  void addTrainingPoint(std::string target_class, const std::vector<double> point);
+  void train();
+  void clear();
+  std::string classifyPoint(const std::vector<double> point);
 };
 
-} /* End namespace */
-#endif /* SVM_CLASSIFIER_H_ */
+}  // namespace ml_classifiers
+
+#endif  // ML_CLASSIFIERS_SVM_CLASSIFIER_H

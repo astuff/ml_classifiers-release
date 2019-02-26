@@ -2,30 +2,52 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(ml_classifiers)
 
-find_package(catkin REQUIRED COMPONENTS message_generation std_msgs rospy roscpp pluginlib eigen)
+find_package(catkin REQUIRED
+  COMPONENTS
+  message_generation
+  std_msgs
+  roscpp
+  pluginlib
+  roslint
+)
+
+find_package(Eigen3 REQUIRED)
+
+set(Eigen3_INCLUDE_DIRS ${EIGEN3_INCLUDE_DIRS})
 
 add_message_files(FILES
   ClassDataPoint.msg
-  DIRECTORY msg)
+  DIRECTORY msg
+)
 
 add_service_files(FILES
-  AddClassData.srv ClassifyData.srv 	ClearClassifier.srv 	CreateClassifier.srv
-  LoadClassifier.srv SaveClassifier.srv TrainClassifier.srv
-  DIRECTORY srv)
+  AddClassData.srv
+  ClassifyData.srv
+  ClearClassifier.srv
+  CreateClassifier.srv
+  LoadClassifier.srv
+  SaveClassifier.srv
+  TrainClassifier.srv
+  DIRECTORY srv
+)
 
 generate_messages(DEPENDENCIES std_msgs)
 
 catkin_package(
-    DEPENDS eigen
-    CATKIN_DEPENDS message_runtime std_msgs rospy roscpp pluginlib 
-    INCLUDE_DIRS include
-    LIBRARIES ZeroClassifier NearestNeighborClassifier SVMClassifier
+  DEPENDS Eigen3
+  CATKIN_DEPENDS message_runtime std_msgs roscpp pluginlib 
+  INCLUDE_DIRS include
+  LIBRARIES ZeroClassifier NearestNeighborClassifier SVMClassifier
 )
 
-find_package(Eigen REQUIRED)
-add_definitions(${EIGEN_DEFINITIONS})
+add_definitions(${EIGEN3_DEFINITIONS})
 
-include_directories(include ${EIGEN_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS})
+include_directories(
+  include
+  src
+  ${EIGEN3_INCLUDE_DIRS}
+  ${catkin_INCLUDE_DIRS}
+)
 
 add_library(ZeroClassifier src/zero_classifier.cpp) 
 add_library(NearestNeighborClassifier src/nearest_neighbor_classifier.cpp)
@@ -34,8 +56,21 @@ add_executable(classifier_server nodes/classifier_server.cpp)
 target_link_libraries(classifier_server ${catkin_LIBRARIES})
 add_dependencies(classifier_server ${PROJECT_NAME}_generate_messages_cpp)
 
+roslint_cpp(
+  include/ml_classifiers/classifier.h
+  include/ml_classifiers/nearest_neighbor_classifier.h
+  include/ml_classifiers/svm_classifier.h
+  include/ml_classifiers/zero_classifier.h
+  nodes/classifier_server.cpp
+  src/nearest_neighbor_classifier.cpp
+  src/svm_classifier.cpp
+  src/zero_classifier.cpp
+)
+
 install(TARGETS classifier_server ZeroClassifier NearestNeighborClassifier SVMClassifier
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
+
+roslint_add_test()
