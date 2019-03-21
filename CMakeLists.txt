@@ -1,6 +1,7 @@
-# http://ros.org/doc/groovy/api/catkin/html/user_guide/supposed.html
 cmake_minimum_required(VERSION 2.8.3)
 project(ml_classifiers)
+
+add_definitions(-std=c++11)
 
 find_package(catkin REQUIRED
   COMPONENTS
@@ -73,4 +74,6 @@ install(TARGETS classifier_server ZeroClassifier NearestNeighborClassifier SVMCl
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
-roslint_add_test()
+if(CATKIN_ENABLE_TESTING)
+  roslint_add_test()
+endif()
