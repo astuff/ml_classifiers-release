@@ -1,3 +1,26 @@
+## ml_classifiers (kinetic) - 1.0.0-0
+
+The packages in the `ml_classifiers` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release --ros-distro kinetic --track kinetic ml_classifiers` on `Tue, 09 Apr 2019 19:38:07 -0000`
+
+The `ml_classifiers` package was released.
+
+Version of package(s) in repository `ml_classifiers`:
+
+- upstream repository: https://github.com/astuff/ml_classifiers.git
+- release repository: https://github.com/astuff/ml_classifiers-release.git
+- rosdistro version: `0.4.1-0`
+- old version: `0.4.1-0`
+- new version: `1.0.0-0`
+
+Versions of tools used:
+
+- bloom version: `0.7.2`
+- catkin_pkg version: `0.4.11`
+- rosdep version: `0.15.1`
+- rosdistro version: `0.7.3`
+- vcstools version: `0.1.40`
+
+
 ## ml_classifiers (melodic) - 0.4.1-0
 
 The packages in the `ml_classifiers` repository were released into the `melodic` distro by running `/usr/bin/bloom-release --ros-distro melodic --track melodic ml_classifiers` on `Fri, 22 Mar 2019 00:38:27 -0000`
