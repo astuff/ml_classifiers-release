@@ -1,0 +1,12 @@
+Source: ros-crystal-ml-classifiers
+Section: misc
+Priority: extra
+Maintainer: AutonomouStuff Software Development Team <software@autonomoustuff.com>
+Build-Depends: debhelper (>= 9.0.0), libeigen3-dev, ros-crystal-ament-cmake, ros-crystal-ament-cmake-copyright, ros-crystal-ament-cmake-cppcheck, ros-crystal-ament-cmake-cpplint, ros-crystal-ament-cmake-lint-cmake, ros-crystal-ament-cmake-uncrustify, ros-crystal-ament-cmake-xmllint, ros-crystal-ament-lint-auto, ros-crystal-pluginlib, ros-crystal-rclcpp, ros-crystal-ros-environment, ros-crystal-rosidl-default-generators, ros-crystal-std-msgs, ros-crystal-ros-workspace, ros-crystal-rmw-connext-cpp, ros-crystal-rmw-fastrtps-cpp, ros-crystal-rmw-implementation, ros-crystal-rmw-opensplice-cpp, ros-crystal-rosidl-typesupport-connext-c, ros-crystal-rosidl-typesupport-connext-cpp, ros-crystal-rosidl-typesupport-opensplice-c, ros-crystal-rosidl-typesupport-opensplice-cpp
+Homepage: http://wiki.ros.org/ml_classifiers
+Standards-Version: 3.9.2
+
+Package: ros-crystal-ml-classifiers
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libeigen3-dev, ros-crystal-pluginlib, ros-crystal-rclcpp, ros-crystal-rosidl-default-runtime, ros-crystal-std-msgs, ros-crystal-ros-workspace
+Description: ml_classifiers
