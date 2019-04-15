@@ -1,3 +1,26 @@
+## ml_classifiers (crystal) - 1.0.0-1
+
+The packages in the `ml_classifiers` repository were released into the `crystal` distro by running `/usr/local/bin/bloom-release --track crystal --ros-distro crystal ml_classifiers` on `Mon, 15 Apr 2019 18:34:49 -0000`
+
+The `ml_classifiers` package was released.
+
+Version of package(s) in repository `ml_classifiers`:
+
+- upstream repository: https://github.com/astuff/ml_classifiers.git
+- release repository: https://github.com/astuff/ml_classifiers-release.git
+- rosdistro version: `1.0.0-0`
+- old version: `1.0.0-0`
+- new version: `1.0.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.8.0`
+- catkin_pkg version: `0.4.11`
+- rosdep version: `0.15.1`
+- rosdistro version: `0.7.3`
+- vcstools version: `0.1.40`
+
+
 ## ml_classifiers (crystal) - 1.0.0-0
 
 The packages in the `ml_classifiers` repository were released into the `crystal` distro by running `/usr/local/bin/bloom-release --track crystal --ros-distro crystal ml_classifiers` on `Tue, 09 Apr 2019 19:57:00 -0000`
