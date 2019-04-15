@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>ml_classifiers</name>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <description>ml_classifiers</description>
 
   <maintainer email="software@autonomoustuff.com">AutonomouStuff Software Development Team</maintainer>
@@ -15,6 +15,8 @@
 
   <author email="sniekum@cs.utexas.edu">Scott Niekum</author>
   <author email="jwhitley@autonomoustuff.com">Joshua Whitley</author>
+
+  <buildtool_depend>ros_environment</buildtool_depend>
 
   <buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
   <buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
