@@ -1,0 +1,12 @@
+Source: ros-dashing-ml-classifiers
+Section: misc
+Priority: extra
+Maintainer: AutonomouStuff Software Development Team <software@autonomoustuff.com>
+Build-Depends: debhelper (>= 9.0.0), libeigen3-dev, ros-dashing-ament-cmake, ros-dashing-ament-cmake-copyright, ros-dashing-ament-cmake-cppcheck, ros-dashing-ament-cmake-cpplint, ros-dashing-ament-cmake-lint-cmake, ros-dashing-ament-cmake-uncrustify, ros-dashing-ament-cmake-xmllint, ros-dashing-ament-lint-auto, ros-dashing-pluginlib, ros-dashing-rclcpp, ros-dashing-ros-environment, ros-dashing-rosidl-default-generators, ros-dashing-std-msgs, ros-dashing-ros-workspace, ros-dashing-rmw-connext-cpp, ros-dashing-rmw-fastrtps-cpp, ros-dashing-rmw-implementation, ros-dashing-rmw-opensplice-cpp, ros-dashing-rosidl-typesupport-connext-c, ros-dashing-rosidl-typesupport-connext-cpp, ros-dashing-rosidl-typesupport-opensplice-c, ros-dashing-rosidl-typesupport-opensplice-cpp
+Homepage: http://wiki.ros.org/ml_classifiers
+Standards-Version: 3.9.2
+
+Package: ros-dashing-ml-classifiers
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libeigen3-dev, ros-dashing-pluginlib, ros-dashing-rclcpp, ros-dashing-rosidl-default-runtime, ros-dashing-std-msgs, ros-dashing-ros-workspace
+Description: ml_classifiers
