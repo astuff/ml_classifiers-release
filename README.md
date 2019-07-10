@@ -1,3 +1,26 @@
+## ml_classifiers (dashing) - 1.0.1-1
+
+The packages in the `ml_classifiers` repository were released into the `dashing` distro by running `/usr/local/bin/bloom-release --track dashing --ros-distro dashing ml_classifiers` on `Wed, 10 Jul 2019 15:32:51 -0000`
+
+The `ml_classifiers` package was released.
+
+Version of package(s) in repository `ml_classifiers`:
+
+- upstream repository: https://github.com/astuff/ml_classifiers.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `1.0.1-1`
+
+Versions of tools used:
+
+- bloom version: `0.8.0`
+- catkin_pkg version: `0.4.11`
+- rosdep version: `0.15.2`
+- rosdistro version: `0.7.4`
+- vcstools version: `0.1.40`
+
+
 ## ml_classifiers (crystal) - 1.0.1-1
 
 The packages in the `ml_classifiers` repository were released into the `crystal` distro by running `/usr/local/bin/bloom-release --track crystal --ros-distro crystal ml_classifiers` on `Mon, 15 Apr 2019 19:00:03 -0000`
